@@ -7,12 +7,12 @@ class Point {
 
   Point(this.x, this.y, this.z);
 
-  factory Point.zero(){
-    return Point(1,1,1);
+  factory Point.zero() {
+    return Point(1, 1, 1);
   }
 
   // Возвращает дистанцию
-  double distanceTo(Point b){
+  double distanceTo(Point b) {
     double dx = b.x - x;
     double dy = b.y - y;
     double dz = b.z - z;

@@ -22,7 +22,8 @@ void main() {
   print('Задача №1.');
   print('Параметры: a=$a, b=$b. НОД: $nod');
 
-  a = 27; b = 24;
+  a = 27;
+  b = 24;
   var nok = num.getNOK(27, 24);
   print('Параметры: a=$a, b=$b. НОК: $nok');
 
@@ -46,13 +47,27 @@ void main() {
 
   print('----------------------------------------------------');
   print('Задача №4.');
-  List list = ['Hello', 'World!', 'Football', 'Basketball'];
+  List<String> list = ['Hello', 'World!', 'Football', 'Basketball'];
   var m = num.getListMap(list);
   print('Параметры: Коллекция(List)=$list. Коллекция(Map): $m');
 
   print('----------------------------------------------------');
   print('Задача №5.');
-  List list2 = ['one', 'cat', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero', 'five', 'dog'];
+  List list2 = [
+    'one',
+    'cat',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'zero',
+    'five',
+    'dog'
+  ];
   var numsList = num.getNumsWithoutRepeat(list2);
   print('Параметры: Коллекция(List)=$list2. Коллекция(Set): $numsList');
 
@@ -76,9 +91,9 @@ void main() {
   var adminUser = AdminUser(name, email);
   var adminEmail = adminUser.getMailSystem();
   print('Параметры: Email: $email. Результат: $adminEmail');
-  
+
   var userManager = UserManager();
-  for(int i = 0; i<userManager.users.length; i++) {
+  for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');
   }
@@ -88,7 +103,7 @@ void main() {
   email = 'user4@test.com';
   print('Добавляю нового пользователя. Name=$name, Email: $email');
   userManager.addUser(name, email);
-  for(int i = 0; i<userManager.users.length; i++) {
+  for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');
   }
@@ -97,7 +112,7 @@ void main() {
   email = 'user2@test.com';
   print('Удаляю пользователя. Email: $email');
   userManager.removeUser(email);
-  for(int i = 0; i<userManager.users.length; i++) {
+  for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');
   }

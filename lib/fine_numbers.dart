@@ -5,11 +5,11 @@ class Number {
   // Number(this.a, this.b);
 
   // Задача №1. Возвращает НОД
-  int getNOD(int a, int b){
+  int getNOD(int a, int b) {
     var x = a;
     var y = b;
     while (x != y) {
-      if(x > y) {
+      if (x > y) {
         x = x - y;
       } else {
         y = y - x;
@@ -20,19 +20,19 @@ class Number {
   }
 
   // Задача №1. Возвращает НОК
-  int getNOK(int a, int b){
+  int getNOK(int a, int b) {
     List<int> listA = [];
     List<int> listB = [];
     int i = 1;
-    while(a >= i) {
-      int s = a*i;
+    while (a >= i) {
+      int s = a * i;
       listA.add(s);
       i++;
     }
 
     int j = 1;
-    while(b >= j) {
-      int s = b*j;
+    while (b >= j) {
+      int s = b * j;
       listB.add(s);
       j++;
     }
@@ -45,11 +45,11 @@ class Number {
   }
 
   // Задача №1. Разбивает число на простые множители и возвращает их
-  List getPrimeFactors(int a){
+  List getPrimeFactors(int a) {
     List<int> list = [1];
     double x = a.toDouble();
 
-    for(int i = 2; i <= x / i; i++) {
+    for (int i = 2; i <= x / i; i++) {
       while (x % i == 0) {
         list.add(i);
         x = x / i;
@@ -63,18 +63,18 @@ class Number {
     return list;
   }
 
-  // Задача №2. конвертирует десятичной в двоичную 
-  String convertDecimalToBinary(int a){
+  // Задача №2. конвертирует десятичной в двоичную
+  String convertDecimalToBinary(int a) {
     return a.toRadixString(2);
   }
 
   // Задача №2. конвертирует наоборот
-  int convertBinaryToDecimal(String binary){
+  int convertBinaryToDecimal(String binary) {
     return int.parse(binary, radix: 2);
   }
 
   // Задача №3. Принимает строки с цифрами разделенной с пробелами и возращает лист только с цифрами
-  List getNumbersFromString(String str){
+  List getNumbersFromString(String str) {
     List<String> strList = str.split(' ');
     List<int> numList = [];
     for (int i = 0; i < strList.length; i++) {
@@ -84,21 +84,21 @@ class Number {
     return numList;
   }
 
-  // Задача №4. Как я понял так и реализовал :) 
-  Map getListMap(List list){
-    Map<int,String> mapList = {};
-    for (int i = 0;  i < list.length; i++) {
+  // Задача №4. Как я понял так и реализовал :)
+  Map getListMap<T>(List<String> list) {
+    Map<int, String> mapList = {};
+    for (int i = 0; i < list.length; i++) {
       mapList[list[i].length] = list[i];
     }
 
     return mapList;
   }
 
-  // Задача №5. 
-  Set getNumsWithoutRepeat(List list){
+  // Задача №5.
+  Set getNumsWithoutRepeat<T>(List list) {
     var needSets = <int>{};
-    for(int i = 0; i < list.length; i++) {
-      switch(list[i].toString().toLowerCase()) {
+    for (int i = 0; i < list.length; i++) {
+      switch (list[i].toString().toLowerCase()) {
         case 'one':
           needSets.add(1);
           break;
@@ -128,7 +128,7 @@ class Number {
           break;
         case 'zero':
           needSets.add(0);
-          break;         
+          break;
       }
     }
 
