@@ -86,9 +86,9 @@ class Number {
 
   // Задача №4. Как я понял так и реализовал :)
   Map getListMap<T>(List<String> list) {
-    Map<int, String> mapList = {};
+    Map<String, int> mapList = {};
     for (int i = 0; i < list.length; i++) {
-      mapList[list[i].length] = list[i];
+      mapList[list[i]] = list[i].length;
     }
 
     return mapList;
