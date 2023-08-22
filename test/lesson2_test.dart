@@ -92,7 +92,7 @@ void main() {
   var adminEmail = adminUser.getMailSystem();
   print('Параметры: Email: $email. Результат: $adminEmail');
 
-  var userManager = UserManager();
+  var userManager = UserManager(User('admin', 'admin323@test.com'));
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');
@@ -101,8 +101,9 @@ void main() {
   print('----------------------------------------------------');
   name = 'User4';
   email = 'user4@test.com';
+  var user = User(name, email);
   print('Добавляю нового пользователя. Name=$name, Email: $email');
-  userManager.addUser(name, email);
+  userManager.addUser(user);
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');
