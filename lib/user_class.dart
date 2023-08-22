@@ -25,20 +25,17 @@ class AdminUser extends User with UserMixin {
 
 // }
 
-class UserManager<T> {
-  List users = <T>[];
+class UserManager<T extends User> {
+  List<T> users = [];
 
   // По умолчанию БД список пользователей
-  UserManager() {
-    users.addAll([User('admin', 'admin323@test.com')]);
-    users.addAll([User('User1', 'user1@test.com')]);
-    users.addAll([User('User2', 'user2@test.com')]);
-    users.addAll([User('User3', 'user3@test.com')]);
+  UserManager(T user) {
+    users.addAll([user]);
   }
 
   // Добавляет пользователя в коллекцию
-  void addUser(String name, String email) {
-    users.addAll([User(name, email)]);
+  void addUser(T user) {
+    users.addAll([user]);
   }
 
   // Удалять по Email из коллекцию
