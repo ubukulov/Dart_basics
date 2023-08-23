@@ -88,25 +88,27 @@ void main() {
   print('Задача №8.');
   var name = 'Admin';
   var email = 'admin2123@test.com';
-  var adminUser = AdminUser(name, email);
+  var adminUser = AdminUser(name, email, 'admin');
   var adminEmail = adminUser.getMailSystem();
   print('Параметры: Email: $email. Результат: $adminEmail');
 
-  var userManager = UserManager(User('admin', 'admin323@test.com'));
+  var userManager = UserManager(User('admin', 'admin323@test.com', 'admin'));
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
-    print('Пользовател №$i: $e');
+    var t = userManager.users[i].type;
+    print('Пользовател №$i: $e, Тип:$t');
   }
 
   print('----------------------------------------------------');
   name = 'User4';
   email = 'user4@test.com';
-  var user = User(name, email);
+  var user = User(name, email, 'user');
   print('Добавляю нового пользователя. Name=$name, Email: $email');
   userManager.addUser(user);
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
-    print('Пользовател №$i: $e');
+    var t = userManager.users[i].type;
+    print('Пользовател №$i: $e, Тип:$t');
   }
 
   print('----------------------------------------------------');
@@ -115,7 +117,8 @@ void main() {
   userManager.removeUser(email);
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
-    print('Пользовател №$i: $e');
+    var t = userManager.users[i].type;
+    print('Пользовател №$i: $e, Тип:$t');
   }
 
   print('----------------------------------------------------');
