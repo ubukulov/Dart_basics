@@ -44,7 +44,7 @@ class UserManager<T extends User> {
   List getUsersEmail() {
     List usersEmail = [];
     for (int i = 0; i < users.length; i++) {
-      if (users[i].type == 'admin') {
+      if (isAdmin(users[i])) {
         usersEmail.add(getMailSystem(users[i].email));
       } else {
         usersEmail.add(users[i].email);
@@ -52,6 +52,10 @@ class UserManager<T extends User> {
     }
 
     return usersEmail;
+  }
+
+  bool isAdmin(T user){
+    return (user.type== 'admin') ? true : false;
   }
 
   String getMailSystem(String email) {
