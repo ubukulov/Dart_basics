@@ -1,9 +1,8 @@
 class User {
   String email = 'test@mail.ru';
   late String name;
-  String type = 'user';
 
-  User(this.name, this.email, this.type);
+  User(this.name, this.email);
 }
 
 mixin UserMixin on User {
@@ -19,15 +18,19 @@ mixin UserMixin on User {
 }
 
 class AdminUser extends User with UserMixin {
-  AdminUser(String name, String email, String type) : super(name, email, type);
+  AdminUser(String name, String email) : super(name, email);
 }
 
-class UserManager<T extends User> {
-  List<T> users = [];
+class UserManager<T extends User, A extends AdminUser> {
+  List users = [];
 
   // По умолчанию БД список пользователей
-  UserManager(T user) {
-    users.add(user);
+  UserManager(String name, String email) {
+    users.add(User(name, email));
+  }
+
+  void addAdmin(A admin) {
+    users.add(admin);
   }
 
   // Добавляет пользователя в коллекцию
@@ -44,7 +47,7 @@ class UserManager<T extends User> {
   List getUsersEmail() {
     List usersEmail = [];
     for (int i = 0; i < users.length; i++) {
-      if (isAdmin(users[i])) {
+      if (users[i] is AdminUser) {
         usersEmail.add(getMailSystem(users[i].email));
       } else {
         usersEmail.add(users[i].email);
@@ -52,10 +55,6 @@ class UserManager<T extends User> {
     }
 
     return usersEmail;
-  }
-
-  bool isAdmin(T user){
-    return (user.type== 'admin') ? true : false;
   }
 
   String getMailSystem(String email) {
