@@ -92,9 +92,9 @@ void main() {
   var adminEmail = adminUser.getMailSystem();
   print('Параметры: Email: $email. Результат: $adminEmail');
 
-  var userManager = UserManager('user1', 'user1@test.com');
-  userManager.addAdmin(adminUser);
-
+  var userManager = UserManager(User('user1', 'user1@test.com'));
+  userManager.addUser(adminUser);
+  
   for (int i = 0; i < userManager.users.length; i++) {
     var e = userManager.users[i].email;
     print('Пользовател №$i: $e');

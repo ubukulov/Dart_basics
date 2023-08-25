@@ -21,16 +21,12 @@ class AdminUser extends User with UserMixin {
   AdminUser(String name, String email) : super(name, email);
 }
 
-class UserManager<T extends User, A extends AdminUser> {
-  List users = [];
+class UserManager<T extends User> {
+  List<T> users = [];
 
   // По умолчанию БД список пользователей
-  UserManager(String name, String email) {
-    users.add(User(name, email));
-  }
-
-  void addAdmin(A admin) {
-    users.add(admin);
+  UserManager(T user) {
+    users.add(user);
   }
 
   // Добавляет пользователя в коллекцию
